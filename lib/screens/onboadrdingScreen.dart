@@ -83,6 +83,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       },
       onSkip: () {
         // You can also override onSkip callback
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomeScreen()));
       },
       showSkipButton: true,
       skip: const Icon(Icons.skip_next),
