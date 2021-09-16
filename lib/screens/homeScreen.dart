@@ -1,5 +1,6 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/exerciseHub.dart';
 import 'package:fitness_app/screens/exercise_start_screen.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Fitness App"),
@@ -47,14 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ? ListView(
                 children: exerciseHub!.exercises!.map((e) {
                   return InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                       ExerciseStartScreen(
-                    exercises: e!,
-                      )
-                      ));
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExerciseStartScreen(
+                                    exercises: e!,
+                                  )));
                     },
-
                     child: Hero(
                       tag: e!.id.toString(),
                       child: Container(
@@ -91,24 +93,27 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               Positioned(
-
                                 height: 250,
-                            top: 210,
+                                top: 210,
                                 left: 10,
-                                child: Text(e.title.toString(),style: const TextStyle(
-                                  color: Colors.white,fontSize: 20,shadows: [
-                                  Shadow(
-                                    offset: Offset(2.0, 2.0),
-                                    blurRadius: 3.0,
-                                    color: Colors.black,
-                                  ),
-                                  Shadow(
-                                    offset: Offset(2.0, 2.0),
-                                    blurRadius: 8.0,
-                                    color: Colors.black,
-                                  ),
-                                ]
-                                ),),
+                                child: Text(
+                                  e.title.toString(),
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      shadows: [
+                                        Shadow(
+                                          offset: Offset(2.0, 2.0),
+                                          blurRadius: 3.0,
+                                          color: Colors.black,
+                                        ),
+                                        Shadow(
+                                          offset: Offset(2.0, 2.0),
+                                          blurRadius: 8.0,
+                                          color: Colors.black,
+                                        ),
+                                      ]),
+                                ),
                               )
                             ],
                           )),
